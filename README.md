@@ -1,10 +1,14 @@
+Yii Comments Extension
+---------------------------------
+
 Yii module to add comments to any instance of CActiveRecord.
 
 Features
 ------------
--Comments administration
--Threaded comments
--Each instance with their own configuration
+* Comments administration
+* Threaded comments
+* Each model instance with their own configuration
+
 
 Installation
 --------------
@@ -12,6 +16,7 @@ To add a comment to the model, you need to perform the following steps.
 
 Add Comments table to your schema:
 
+~~~sql
 CREATE TABLE IF NOT EXISTS `tbl_comments` (
     `owner_name` varchar(50) NOT NULL,
     `owner_id` int(12) NOT NULL,
@@ -27,9 +32,11 @@ CREATE TABLE IF NOT EXISTS `tbl_comments` (
     PRIMARY KEY (`comment_id`),
     KEY `owner_name` (`owner_name`,`owner_id`)
     )
+~~~
 
 Configure the module in app config:
 
+~~~php
 'modules'=>array(
     ...
     'comments'=>array(
@@ -74,11 +81,14 @@ Configure the module in app config:
     ),
     ...
 ),
+~~~
 
 Display ECommentListWidget in view for displaying commentable models
 
+~~~php
 $this->widget('comments.widgets.ECommentsListWidget', array(
     'model' => $model,
 ));
+~~~
 
 To manage all comments go to http://yoursite.com/modules.

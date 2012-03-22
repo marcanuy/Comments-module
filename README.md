@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `tbl_comments` (
 Configure the module in app config:
 
 ~~~php
+<?php
 'modules'=>array(
     ...
     'comments'=>array(
@@ -86,6 +87,7 @@ Configure the module in app config:
 Display ECommentListWidget in view for displaying commentable models
 
 ~~~php
+<?php
 $this->widget('comments.widgets.ECommentsListWidget', array(
     'model' => $model,
 ));

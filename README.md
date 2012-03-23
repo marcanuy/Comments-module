@@ -14,9 +14,9 @@ Installation
 --------------
 To add a comment to the model, you need to perform the following steps.
 
-Add Comments table to your schema:
+### Add Comments table to your schema:
 
-~~~sql
+```sql
     CREATE TABLE IF NOT EXISTS `tbl_comments` (
 	`owner_name` varchar(50) NOT NULL,
 	`owner_id` int(12) NOT NULL,
@@ -32,12 +32,11 @@ Add Comments table to your schema:
 	PRIMARY KEY (`comment_id`),
 	KEY `owner_name` (`owner_name`,`owner_id`)
 	)
-~~~
+```
 
-Configure the module in app config:
+### Configure the module in app config:
 
-~~~php
-    <?php
+```php
 	'modules'=>array(
 	    ...
 	    'comments'=>array(
@@ -82,15 +81,15 @@ Configure the module in app config:
 	    ),
 	    ...
 	),
-~~~
+```
 
-Display ECommentListWidget in view for displaying commentable models
+### Display ECommentListWidget in view for displaying commentable models
 
-~~~php
+```php
     <?php
 	$this->widget('comments.widgets.ECommentsListWidget', array(
 	    'model' => $model,
 	));
-~~~
+```
 
 To manage all comments go to http://yoursite.com/modules.
